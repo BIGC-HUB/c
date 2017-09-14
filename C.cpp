@@ -1,11 +1,14 @@
-﻿// c.cpp: 定义控制台应用程序的入口点。
-// 编码文件
+﻿// 编译头
 #include "stdafx.h"
-#include <locale.h>
+// 定制方法
+#define len(arr) sizeof(arr) / sizeof(arr[0])
+#define log(...) printf(">>>" __VA_ARGS__)
 
-int main() {
-	char a = 'a';
-	printf("我是UTF-8文件 中文 不乱码 %c\n", a);
+int main(void) {
+	int a[] = {1, 2, 99};
+	for (size_t i = 0; i < len(a); i++) {
+		log("第 %i 个等于 %i \n", i, a[i]);
+	}
 	getchar();
     return 0;
 }
