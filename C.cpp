@@ -2,7 +2,7 @@
 #include "stdafx.h"
 // 定制方法
 #define len(arr) sizeof(arr) / sizeof(arr[0])
-#define log(...) printf(">>>" __VA_ARGS__)
+#define log(...) printf(">>> " __VA_ARGS__)
 
 int main(void) {
 	int a[] = {1, 2, 99};
