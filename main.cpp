@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-//
 //创建两个单链表 A、B,要求 A、B 的元素按升序排列,输出单链表 A、B,
 //然后将 A、B中相同的元素放在单链表 C中，C也按升序排列，输出单链表C。
 //
@@ -20,14 +19,6 @@ struct node {
     int element;
     struct node *next;
 };
-
-// struct node *GuaListFindTail(struct node *list) {
-//    struct node *l = list->next;
-//    while(list != NULL) {
-//        l = l->next;
-//    }
-//    return l;
-// }
 
 struct node *
 GuaListCreate(int *element, int numberOfElements) {
@@ -79,12 +70,21 @@ GuaListSort(struct node *list) {
     }
 }
 
-void
-GuaListAppendList(struct node *list, struct node *anotherList) {
-   struct node l = GuaListFindTail(list);
-   l->next = anotherList->next;
-   free(anotherList);
-}
+//struct node *
+//GuaListFindTail(struct node *list) {
+//    struct node *l = list->next;
+//    while(list != NULL) {
+//        l = l->next;
+//    }
+//    return l;
+//}
+//
+//void
+//GuaListAppendList(struct node *list, struct node *anotherList) {
+//    struct node l = GuaListFindTail(list);
+//    l->next = anotherList->next;
+//    free(anotherList);
+//}
 
 void
 GuaListInsert(struct node *list, int element) {
