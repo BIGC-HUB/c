@@ -13,15 +13,16 @@
 
 // struct node;
 // typedef struct node GuaList;
-#define GuaList struct node
 // typedef int type;
+#define GuaList struct node
 
 struct node {
     int element;
     struct node *next;
 };
 
-struct node *GuaListCreate(int *element, int numberOfElements) {
+struct node *
+GuaListCreate(int *element, int numberOfElements) {
     assert(numberOfElements >= 0);
 
 	struct node *list = (struct node*)malloc(sizeof(struct node));
@@ -38,7 +39,8 @@ struct node *GuaListCreate(int *element, int numberOfElements) {
     return list;
 }
 
-void GuaListLog(struct node *list) {
+void
+GuaListLog(struct node *list) {
     struct node *l = list->next;
     while(l != NULL) {
         printf("%d  ", l->element);
@@ -47,7 +49,8 @@ void GuaListLog(struct node *list) {
     printf("\n");
 }
 
-void GuaListSort(struct node *list) {
+void
+GuaListSort(struct node *list) {
     struct node *cusor = list->next;
 
     while(cusor != NULL) {
@@ -68,30 +71,32 @@ void GuaListSort(struct node *list) {
     }
 }
 
-//struct node *
-//GuaListFindTail(struct node *list) {
-//    struct node *l = list->next;
-//    while(list != NULL) {
-//        l = l->next;
-//    }
-//    return l;
-//}
-//
-//void
-//GuaListAppendList(struct node *list, struct node *anotherList) {
-//    struct node l = GuaListFindTail(list);
-//    l->next = anotherList->next;
-//    free(anotherList);
-//}
+struct node *
+GuaListFindTail(struct node *list) {
+   struct node *l = list->next;
+   while(list != NULL) {
+       l = l->next;
+   }
+   return l;
+}
 
-void GuaListInsert(struct node *list, int element) {
+void
+GuaListAppendList(struct node *list, struct node *anotherList) {
+   struct node l = GuaListFindTail(list);
+   l->next = anotherList->next;
+   free(anotherList);
+}
+
+void
+GuaListInsert(struct node *list, int element) {
 	struct node *n = (struct node*)malloc(sizeof(struct node));
     n->element = element;
     n->next = list->next;
     list->next = n;
 }
 
-struct node *DisgustingAlgorithm(struct node *a, struct node *b) {
+struct node *
+DisgustingAlgorithm(struct node *a, struct node *b) {
     struct node *c = GuaListCreate(0, 0);
 
     a = a->next;
@@ -110,7 +115,8 @@ struct node *DisgustingAlgorithm(struct node *a, struct node *b) {
     return c;
 }
 
-int main(int argc, const char * argv[]) {
+int
+main(int argc, const char * argv[]) {
     // 创建两个单链表A、B
     int data_a[] = {1, 2, 3, 4, 5};
     int data_b[] = {3, 5, 6, 7, 8};
