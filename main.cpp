@@ -21,6 +21,14 @@ struct node {
     struct node *next;
 };
 
+// struct node *GuaListFindTail(struct node *list) {
+//    struct node *l = list->next;
+//    while(list != NULL) {
+//        l = l->next;
+//    }
+//    return l;
+// }
+
 struct node *
 GuaListCreate(int *element, int numberOfElements) {
     assert(numberOfElements >= 0);
@@ -69,15 +77,6 @@ GuaListSort(struct node *list) {
 
         cusor = cusor->next;
     }
-}
-
-struct node *
-GuaListFindTail(struct node *list) {
-   struct node *l = list->next;
-   while(list != NULL) {
-       l = l->next;
-   }
-   return l;
 }
 
 void
@@ -134,9 +133,6 @@ main(int argc, const char * argv[]) {
 
     // 然后将A、B中相同的元素放在单链表C中
     struct node *C = DisgustingAlgorithm(A, B);
-    // struct node *C = GuaListAppendList(A, B);
-    // JMSet *s = JMSetCreateWithList(C);
-    // C = GuaListFromSet(s);
 
     // C也按升序排列
     GuaListSort(C);
