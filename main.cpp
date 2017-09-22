@@ -1,9 +1,12 @@
-// 编译头
-#include "stdafx.h"
+﻿// 编译头
+// #include "stdafx.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+
+#define len(arr) sizeof(arr) / sizeof(arr[0])
+#define log(...) printf( __VA_ARGS__)
 
 //创建两个单链表 A、B,要求 A、B 的元素按升序排列,输出单链表 A、B,
 //然后将 A、B中相同的元素放在单链表 C中，C也按升序排列，输出单链表C。
@@ -42,16 +45,15 @@ void
 GuaListLog(struct node *list) {
     struct node *l = list->next;
     while(l != NULL) {
-        printf("%d  ", l->element);
+        log("%d  ", l->element);
         l = l->next;
     }
-    printf("\n");
+    log("\n");
 }
 
 void
 GuaListSort(struct node *list) {
     struct node *cusor = list->next;
-
     while(cusor != NULL) {
         struct node *l = cusor;
         struct node *min = l;
@@ -65,7 +67,9 @@ GuaListSort(struct node *list) {
         int tmp = min->element;
         min->element = cusor->element;
         cusor->element = tmp;
-
+		if (cusor->next != NULL) {
+			log("%i\n", *cusor);
+		};
         cusor = cusor->next;
     }
 }
@@ -115,7 +119,7 @@ DisgustingAlgorithm(struct node *a, struct node *b) {
 }
 
 int
-main(int argc, const char * argv[]) {
+main() {
     // 创建两个单链表A、B
     int data_a[] = {1, 2, 3, 4, 5};
     int data_b[] = {3, 5, 6, 7, 8};
@@ -124,24 +128,44 @@ main(int argc, const char * argv[]) {
     struct node *B = GuaListCreate(data_b, 5);
 
     // 要求A、B 的元素按升序排列
-    GuaListSort(A);
-    GuaListSort(B);
+    // GuaListSort(A);
+    // GuaListSort(B);
 
     // 输出单链表A、B
-    GuaListLog(A);
-    GuaListLog(B);
+    // GuaListLog(A);
+    // GuaListLog(B);
 
     // 然后将A、B中相同的元素放在单链表C中
-    struct node *C = DisgustingAlgorithm(A, B);
+    // struct node *C = DisgustingAlgorithm(A, B);
 
     // C也按升序排列
-    GuaListSort(C);
+    // GuaListSort(C);
 
     // 输出单链表C
-    GuaListLog(C);
+    // GuaListLog(C);
 
     // insert code here...
+    struct entry {
+        int value;
+        struct entry *next;
+    };
+    struct entry n1, n2, n3;
+    struct entry *list_pointer = &n1;
+
+    n1.value = 100;
+    n1.next = &n2;
+
+    n2.value = 200;
+    n2.next = &n3;
+
+    n3.value = 100;
+    n3.next = NULL;
+
+    while (list_pointer != NULL) {
+        log("%i\n", *list_pointer);
+        list_pointer = list_pointer->next;
+    }
+    log("程序结束");
 	getchar();
-    printf("Hello, World!\n");
     return 0;
 }
