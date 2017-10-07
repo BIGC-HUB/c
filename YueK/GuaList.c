@@ -35,6 +35,7 @@ GuaListCreate(int *element, int numberOfElements) {
     // malloc 申请一块内存, 并初始化一下
     GuaList *list = malloc(sizeof(GuaList));
     list->next = NULL;
+    list->last = NULL;
 
     // 循环插入初始化元素
     for(int i = numberOfElements - 1; i >= 0; i--) {
@@ -105,13 +106,30 @@ GuaListContains(GuaList *list, type element) {
 
 void
 GuaListAppend(GuaList *list, type element) {
-    GuaList *l = list->last;
+    GuaList *end = list->last;
+    if (end == NULL) {
+        end = list;
+    };
+    GuaList *n = malloc(sizeof(GuaList));
+    n->element = element;
+    n->next = end->next;
+    end->next = n;
+    // last
+    // if (list->end != NULL) {
+    //     n->last = end;
+    // }
+    list->last = n;
+
     list->length++;
-    // 此时的 l 是最后一个元素
-    GuaList *temp = GuaListCreate(&element, 1);
-    l->next = temp;
-    temp->element = element;
-    temp->next = NULL;
+    // int len = list->length + 1;
+    // list->length = len;
+
+    // GuaList *l = list->last;
+    // // 此时的 l 是最后一个元素
+    // GuaList *temp = GuaListCreate(&element, 1);
+    // l->next = temp;
+    // temp->element = element;
+    // temp->next = NULL;
 }
 
 

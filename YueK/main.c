@@ -45,7 +45,7 @@ main(int argc, const char * argv[]) {
     //stack的测试
     testGuaStackLength();
     testGuaStackIsEmpty();
-    // testGuaStackPush();
+    testGuaStackPush();
 
     //queue的测试
 
