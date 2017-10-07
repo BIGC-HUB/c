@@ -8,10 +8,10 @@ struct GuaStackNode;
 typedef struct GuaStackNode GuaStack;
 typedef int type;
 
-// 结构的具体定义
-struct GuaStackNode {
-    GuaList *list;
-};
+// // 结构的具体定义
+// struct GuaStackNode {
+//     GuaList *list;
+// };
 //创建并返回一个空栈
 GuaStack *
 GuaStackCreate();

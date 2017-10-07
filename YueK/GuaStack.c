@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "GuaList.h"
 #include "GuaStack.h"
+#include "GuaList.h"
 
 //声明 结构名, 类型
-// struct GuaStackNode;
-// typedef struct GuaStackNode GuaStack;
-// typedef int type;
+struct GuaStackNode;
+typedef struct GuaStackNode GuaStack;
+typedef int type;
 
-// // 结构的具体定义
-// struct GuaStackNode {
-//     GuaList *list;
-// };
+// 结构的具体定义
+struct GuaStackNode {
+    GuaList *list;
+};
 
 GuaStack *
 GuaStackCreate() {
@@ -33,7 +33,7 @@ GuaStackLength(GuaStack *stack) {
 void
 GuaStackPush(GuaStack *stack, type e) {
     GuaList *l = stack->list;
-    GuaListAppend(l,e);
+    GuaListAppend(l, e);
 }
 
 type
