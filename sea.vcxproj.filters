@@ -18,9 +18,39 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GuaHashTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuaList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuaQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuaStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuaTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sea.c">
+    <ClCompile Include="main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuaHashTable.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuaList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuaQueue.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuaStack.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuaTest.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

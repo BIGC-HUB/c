@@ -106,10 +106,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <CLanguageStandard>c99</CLanguageStandard>
       <PrecompiledHeaderCompileAs>CompileAsC</PrecompiledHeaderCompileAs>
       <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>Disabled</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,10 +153,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GuaHashTable.h" />
+    <ClInclude Include="GuaList.h" />
+    <ClInclude Include="GuaQueue.h" />
+    <ClInclude Include="GuaStack.h" />
+    <ClInclude Include="GuaTest.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sea.c" />
+    <ClCompile Include="GuaHashTable.c" />
+    <ClCompile Include="GuaList.c" />
+    <ClCompile Include="GuaQueue.c" />
+    <ClCompile Include="GuaStack.c" />
+    <ClCompile Include="GuaTest.c" />
+    <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

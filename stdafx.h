@@ -5,8 +5,8 @@
 
 #include <stdio.h>
 
+
 // 兼容性
 #if _WIN32
 #include <Windows.h>
 #endif
-
