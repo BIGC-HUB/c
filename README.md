@@ -1,26 +1,31 @@
 https://github.com/happlebao/visual_studio_demo
-c99 (-std=c99)
--x c
+
+|配置|参数|
+|:-:|:-:|
+|C语言标准|C99 (-std=c99)|
+|编译为|编译为 C 代码 (-x c)|
+|编译预编译头作为|编译为 C 代码 (-x c-header)|
+|将警告视为错误|是 (-Werror)|
+|警告等级|启用所有警告 (-Wall)|
 
 ```c
-// stdafx.h 编译头
+// 常用编译头
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 #include <assert.h>
 #include <tchar.h>
+
+#if _WIN32
+#include <Windows.h>
+#endif
 ```
 
 ```c
 // main
 #include "stdafx.h"
-
-#if _WIN32
-#include <Windows.h>
-#endif
-
 
 int main() {
 #if _WIN32
